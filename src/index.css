@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.students {
+    margin: 0 auto;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 2em;
+    font-size: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background: linear-gradient(45deg, #9C27B0, #3F51B5);
+    margin: 0;
+    font-family: sans-serif;
+    padding: 5em;
+}
+
+.headings {
+    background: #d8d8d8;
+    font-weight: bold;
+    border-top: 1px solid #c1c1c1;
+}
+.row:nth-child(odd):not(.headings) {
+    background: #e9e9e9;
+}
+.row {
+    display: flex;
+    padding: 5px 10px;
+    border-bottom: 1px solid #c1c1c1;
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+
+.id {
+    width: 40px;
+}
+
+.btn-delete {
+    background: #F44336;
+    margin-left: 10px;
+    border: 1px solid #F44336;
+}
+
+.btn-update {
+    background: #673AB7;
+    margin-left: 10px;
+    border: 1px solid #673AB7;
+}
+
+.row input {
+    width: 225px;
+    background: transparent;
+    border: none;
+}
+
+.row button {
+    color: #fff;
 }
