@@ -25,12 +25,33 @@ let Student = ( {student, onUpdate, onDelete} ) => {
 
 // Step 1: Define component.
 let App = ( props ) => {
-
+  const [newName, setNewName] = useState( '' );
+  const [noticeEmptyName, setEmptyNotice] = useState( false );
   let {students} = props;
-  let {onUpdate, onDelete} = props;
+  let {onUpdate, onDelete, onAddNew} = props;
+  let newID = Object.values( students ).length + 1;
 
   return (
     <div className="students">
+      <div className="row">
+        <div className="id">{newID}</div>
+        <div className="name">
+          <input type="text" value={newName} onChange={ event => setNewName( event.target.value ) } />
+        </div>
+        <button className="btn-add" onClick={ () => {
+          if( newName ) {
+              onAddNew( {
+                id: newID,
+                name: newName,
+              } )
+              setEmptyNotice( false );
+              setNewName( '' );
+          } else {
+              setEmptyNotice( true );
+          }
+        }}>Add new</button>
+      </div>
+      { noticeEmptyName && <div className="row">Error: Empty Name</div> }
       <div className="row headings">
         <div className="id">ID</div>
         <div className="name">Name</div>
@@ -54,6 +75,7 @@ const mapDispachToProps = dispatch => {
   return {
     onUpdate: ( value ) => dispatch( { type: "UPDATE", value: value } ),
     onDelete: ( value ) => dispatch( { type: "DELETE", value: value } ),
+    onAddNew: ( value ) => dispatch( { type: "ADD", value: value } ),
   };
 };
 

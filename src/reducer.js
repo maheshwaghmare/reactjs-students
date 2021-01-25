@@ -30,6 +30,11 @@ const reducer = ( state = initialState, action ) => {
 
     // Step 3: Perform redux actions/
     switch( action.type ) {
+        console.log( action.value );
+
+        case 'ADD':
+                newState = Object.assign( newState, action.value )
+            break;
 
         case 'UPDATE':
                 newState = Object.values( newState ).map( item => {
